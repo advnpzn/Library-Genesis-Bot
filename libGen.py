@@ -3,14 +3,13 @@
 from telegram import Update, ParseMode
 from telegram.ext import Updater, CommandHandler, Dispatcher, CallbackContext
 from plugins.search_gen import search
-from plugins.feelters import f
 
 res = ''
 
 def show(update : Update, context : CallbackContext)->None:
     query =' '.join(context.args)
     global res
-    res = search(query,f)
+    res = search(query)
     if len(res) == 0:
         update.message.reply_text('Not found :(')
     else:
