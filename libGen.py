@@ -1,5 +1,4 @@
-#bot_token=1577577500:AAHQTymtwHZYDPqheOzkfSHMlJx2LcgPMJ4
-
+import os
 from telegram import Update, ParseMode
 from telegram.ext import Updater, CommandHandler, Dispatcher, CallbackContext
 from plugins.search_gen import search
@@ -35,7 +34,8 @@ def s(update : Update, context : CallbackContext)->None:
 
 
 if __name__ == "__main__":
-    updater = Updater(token='1577577500:AAHQTymtwHZYDPqheOzkfSHMlJx2LcgPMJ4',use_context=True)
+    TOKEN = os.environ.get(bot_token,"")
+    updater = Updater(token=TOKEN,use_context=True)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('search',show,run_async=True))
     dp.add_handler(CommandHandler('show',s,run_async=True))
