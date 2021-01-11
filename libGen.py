@@ -30,8 +30,18 @@ def s(update : Update, context : CallbackContext)->None:
                 f"<b>Type :</b> <pre>{r['Extension']}</pre>\n"
                 f"<b>Link :</b> {r['Mirror_1']}",parse_mode = 'HTML')
     except IndexError:
-        update.message.reply_text('Choose the correct result o make sure you did /search before.')
+        update.message.reply_text('Choose the correct result or make sure you did /search before.')
 
+def help(update : Update, context : CallbackContext)->None:
+    update.message.reply_text("Library Genesis is a library collection of pirated books.\n"
+                    "Search the books and get the results via\nSTEP 1 : "
+                    "/search (book name)\ne.g. /search Wimpy Kid\n"
+                    "This show currently how many books are there for the given search query.\n"
+                    "STEP 2 : /show (number)\ne.g. /show 4\n"
+                    " Put a number that's in inclusive range of the Total no.of books you got in /search.\n"
+                    "Wanna Contact Dev ?\n"
+                    "Telegram username : @ATPnull")                                  
+                                  
 
 if __name__ == "__main__":
     TOKEN = os.environ.get("bot_token","")
@@ -39,5 +49,6 @@ if __name__ == "__main__":
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('search',show,run_async=True))
     dp.add_handler(CommandHandler('show',s,run_async=True))
+    dp.add_handler(CommandHandler('help',help,run_async=True))                             
     updater.start_polling()
     updater.idle()
