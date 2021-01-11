@@ -1,3 +1,0 @@
-f = {
-    "Extension"     :   "pdf"
-}
