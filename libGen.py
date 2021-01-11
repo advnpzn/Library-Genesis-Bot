@@ -34,7 +34,7 @@ def s(update : Update, context : CallbackContext)->None:
 
 
 if __name__ == "__main__":
-    TOKEN = os.environ.get(bot_token,"")
+    TOKEN = os.environ.get("bot_token","")
     updater = Updater(token=TOKEN,use_context=True)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('search',show,run_async=True))
