@@ -42,13 +42,17 @@ def help(update : Update, context : CallbackContext)->None:
                     "Wanna Contact Dev ?\n"
                     "Telegram username : @ATPnull")                                  
                                   
-
+def start(update : Update, context : CallbackContext)->None:
+    update.message.reply_text("Welcome!\nPress /help for more information.")
+                                  
+                                  
 if __name__ == "__main__":
     TOKEN = os.environ.get("bot_token","")
     updater = Updater(token=TOKEN,use_context=True)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('search',show,run_async=True))
     dp.add_handler(CommandHandler('show',s,run_async=True))
-    dp.add_handler(CommandHandler('help',help,run_async=True))                             
+    dp.add_handler(CommandHandler('help',help,run_async=True))
+    dp.add_handler(CommandHandler('start',start,run_async=True))                               
     updater.start_polling()
     updater.idle()
