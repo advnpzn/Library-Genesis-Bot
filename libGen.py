@@ -7,6 +7,7 @@ res = ''
 
 def show(update : Update, context : CallbackContext)->None:
     query =' '.join(context.args)
+    update.message.reply_text('Bot has been stopped and is currently under further development.')
     global res
     res = search(query)
     if len(res) == 0:
@@ -17,6 +18,7 @@ def show(update : Update, context : CallbackContext)->None:
                                 f"Do /show (result)\n e.g. /show 1",parse_mode='HTML')
 
 def s(update : Update, context : CallbackContext)->None:
+    update.message.reply_text('Bot has been stopped and is currently under further development.')                          
     q = int(context.args[0])
     try:
         r = res[q-1]
