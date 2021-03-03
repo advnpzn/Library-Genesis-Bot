@@ -1,2 +1,0 @@
-def bruhbruh():
-  s = 'Hello'
