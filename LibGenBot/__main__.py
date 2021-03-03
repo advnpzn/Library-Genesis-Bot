@@ -70,7 +70,7 @@ def inline_search_book(update: Update, context: CallbackContext):
                                          description=f"{author} | {lang} | {year} | {taipe}"
                                          )
             )
-        update.inline_query.answer(res, auto_pagination=True)
+        update.inline_query.answer(res)
         logger.info(f'@{user} searched {title} ..')
     except (TypeError, IndexError, BadRequest):
         logger.info('Idle...')
