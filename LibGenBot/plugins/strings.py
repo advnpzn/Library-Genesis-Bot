@@ -1,5 +1,3 @@
-from libgen_api import LibgenSearch
-from pprint import pprint
 START_MSG = """
 Library Genesis Bot enables you to
 search for books available in Library Genesis
@@ -18,4 +16,7 @@ BOOK_MSG = """
 *Size :* `{}`
 *Type :* `{}`
 """
+
+GITHUB_URL = 'https://github.com/adenosinetp10'
+TG_URL = 'https://t.me/ATPnull'
 
