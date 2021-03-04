@@ -8,7 +8,7 @@ from telegram.error import BadRequest
 import logging
 from telegram.ext import CommandHandler, CallbackContext, InlineQueryHandler
 from LibGenBot import updater, dp
-from LibGenBot.plugins.strings import *
+from LibGenBot.plugins.strings import START_MSG, BOOK_MSG
 from libgen_api import LibgenSearch
 from uuid import uuid4
 
@@ -42,7 +42,7 @@ def inline_search_book(update: Update, context: CallbackContext):
             pages = books_list[i]['Pages']
             lang = books_list[i]['Language']
             year = books_list[i]['Year']
-            taipe = books_list[i]['Extension'].upper()
+            taipe = books_list[i]['Extension'].capitalize()
             size = books_list[i]['Size']
             dwn_links = [books_list[i]['Mirror_1'], books_list[i]['Mirror_2'], books_list[i]['Mirror_3'],
                          books_list[i]['Mirror_4'], books_list[i]['Mirror_5']]
@@ -70,8 +70,8 @@ def inline_search_book(update: Update, context: CallbackContext):
                                          description=f"{author} | {lang} | {year} | {taipe}"
                                          )
             )
-        update.inline_query.answer(res)
-        logger.info(f'@{user} searched {query} ..')
+            update.inline_query.answer(res, auto_pagination=True)
+            logger.info(f'@{user} searched {title} ..')
     except (TypeError, IndexError, BadRequest):
         logger.info('Idle...')
 
@@ -83,8 +83,8 @@ def start(update: Update, context: CallbackContext):
                               parse_mode=ParseMode.MARKDOWN,
                               reply_markup=InlineKeyboardMarkup(
                                   [
-                                      [InlineKeyboardButton('Github', url=GITHUB_URL),
-                                       InlineKeyboardButton('Developer', url=TG_URL)],
+                                      [InlineKeyboardButton('Github', url='https://github.com/adenosinetp10'),
+                                       InlineKeyboardButton('Developer', url='https://t.me/ATPnull')],
                                       [InlineKeyboardButton('Search 🔍', switch_inline_query_current_chat='')],
                                   ]
                               ))
@@ -99,3 +99,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

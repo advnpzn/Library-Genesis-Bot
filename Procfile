@@ -1,1 +1,1 @@
-worker: python3 libGen.py
+worker: python3 -m LibGenBot
