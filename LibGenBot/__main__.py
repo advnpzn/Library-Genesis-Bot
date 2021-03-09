@@ -99,6 +99,7 @@ def inline_search_book(update: Update, context: CallbackContext):
         for i in range(0, len(to_search)):
             res.append(
                 InlineQueryResultArticle(id=uuid4(), title=to_search[i],
+                                         description = f"Search by {to_search[i]} for Books/Articles",
                                          input_message_content=InputTextMessageContent(message_text=
                                                                                        'Click the Button below'),
                                          reply_markup=InlineKeyboardMarkup(
