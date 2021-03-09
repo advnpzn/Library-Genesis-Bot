@@ -81,14 +81,14 @@ def inline_search_book(update: Update, context: CallbackContext):
     query = update.inline_query.query
     to_search = ['author', 'title']
     if to_search[1] in query:
-        res = result_article(update, context,  search_book_title(query.replace('title', ''), user))
+        res = result_article(update, context,  search_book_title(query.replace('title ', ''), user))
         try:
             update.inline_query.answer(res, auto_pagination=True)
             logger.info(f'@{user} searched {query} ..')
         except (TypeError, IndexError, BadRequest):
             logger.info('Idle...')
     elif to_search[0] in query:
-        res = result_article(update, context, search_book_author(query.replace('author', ''), user))
+        res = result_article(update, context, search_book_author(query.replace('author ', ''), user))
         try:
             update.inline_query.answer(res, auto_pagination=True)
             logger.info(f'@{user} searched {query} ..')
@@ -116,8 +116,8 @@ def search_btn_clicked(update: Update, context: CallbackContext):
     query = update.callback_query
     keyboard = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("Search by Author", switch_inline_query_current_chat='author'),
-             InlineKeyboardButton('Search by Title', switch_inline_query_current_chat='title')],
+            [InlineKeyboardButton("Search by Author", switch_inline_query_current_chat='author '),
+             InlineKeyboardButton('Search by Title', switch_inline_query_current_chat='title ')],
             [InlineKeyboardButton('🔙', callback_data='back_to_start')],
         ]
     )
