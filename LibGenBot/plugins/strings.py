@@ -3,7 +3,7 @@ Library Genesis Bot enables you to
 search for books available in Library Genesis
 using the Inline Query while being in Telegram.
 Press the Search Button, or do 
-`@{} <book name>`
+`@{} title <book name>`
 Have a Nice Day.
 """
 
