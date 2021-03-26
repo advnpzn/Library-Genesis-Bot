@@ -77,6 +77,7 @@ def result_article(update: Update, context: CallbackContext, books_list):
 
 
 def inline_search_book(update: Update, context: CallbackContext):
+    full_name = update.effective_user.full_name
     user = update.effective_user.username
     query = update.inline_query.query
     to_search = ['author', 'title']
@@ -84,14 +85,14 @@ def inline_search_book(update: Update, context: CallbackContext):
         res = result_article(update, context,  search_book_title(query.replace('title ', ''), user))
         try:
             update.inline_query.answer(res, auto_pagination=True)
-            logger.info(f'@{user} searched {query} ..')
+            logger.info(f'@{user} | {full_name} searched {query} ..')
         except (TypeError, IndexError, BadRequest):
             logger.info('Idle...')
     elif to_search[0] in query:
         res = result_article(update, context, search_book_author(query.replace('author ', ''), user))
         try:
             update.inline_query.answer(res, auto_pagination=True)
-            logger.info(f'@{user} searched {query} ..')
+            logger.info(f'@{user} | {full_name} searched {query} ..')
         except (TypeError, IndexError, BadRequest):
             logger.info('Idle...')
     else:
