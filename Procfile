@@ -1,1 +1,1 @@
-worker: python3 -m LibGenBot
+web: python3 -m LibGenBot
