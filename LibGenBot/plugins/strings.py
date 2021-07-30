@@ -17,6 +17,6 @@ BOOK_MSG = """
 *Type :* `{}`
 """
 
-GITHUB_URL = 'https://github.com/adenosinetp10'
-TG_URL = 'https://t.me/ATPnull'
+GITHUB_URL = 'https://github.com/notPlasticCat'
+TG_URL = 'https://t.me/plastic_cat'
 
