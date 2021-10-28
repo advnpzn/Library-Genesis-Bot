@@ -18,5 +18,5 @@ BOOK_MSG = """
 """
 
 GITHUB_URL = 'https://github.com/notPlasticCat'
-TG_URL = 'https://t.me/plastic_cat'
+TG_URL = 'https://t.me/f22raptor_uwu'
 
