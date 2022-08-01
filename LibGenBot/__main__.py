@@ -48,7 +48,7 @@ def result_article(update: Update, context: CallbackContext, books_list):
         taipe = books_list[i]['Extension'].upper()
         size = books_list[i]['Size']
         dwn_links = [books_list[i]['Mirror_1'], books_list[i]['Mirror_2'], books_list[i]['Mirror_3'],
-                     books_list[i]['Mirror_4'], books_list[i]['Mirror_5']]
+                     books_list[i]['Mirror_4']]
         res.append(
             InlineQueryResultArticle(id=uuid4(),
                                      title=title,
@@ -66,7 +66,7 @@ def result_article(update: Update, context: CallbackContext, books_list):
                                              ],
                                              [
                                                  InlineKeyboardButton('Mirror 4', url=dwn_links[3]),
-                                                 InlineKeyboardButton('Mirror 5', url=dwn_links[4]),
+                                              
                                              ],
                                          ]
                                      ),
