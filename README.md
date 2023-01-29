@@ -25,4 +25,27 @@ Bot.
 
 * `python3 -m LibGenBot`
 
+### Container(Docker)
+
+ * **Building Docker Image Yourself**
+
+       docker build -t image_name:latest .
+    Replace `image_name` with whatever image name you wanna give. e.g.:
+
+       docker build -t libgenbot:latest .
+
+* **Pulling Image from DockerHub**
+
+    I have already uploaded a Docker Image of Library Genesis Bot to DockerHub. Pull the image and run the container.
+
+      docker pull adenosinetp10/libgenbot:latest
+
+* **Running the Container**
+
+    create a `.env` file and add the `bot_token` to it as stated in **Prerequisites**
+
+    Then run the container by doing
+
+      docker run --env-file ./.env libgenbot
+
 
