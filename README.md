@@ -1,5 +1,9 @@
 ## Prerequisites
 
+* Create a Bot in `@BotFather`
+
+* Turn the inline mode ON in the `Bot Settings` -> `Inline Mode` -> `Turn inline mode ON`
+
 * \>= `Python 3.6`
 
 * Have a `.env` file inside the parent working directory.
