@@ -19,3 +19,9 @@ coverage.xml
 .pytest_cache
 .hypothesis
 venv
+Procfile
+LICENSE
+README.md
+.gitignore
+Dockerfile
+.github
